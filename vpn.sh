@@ -11,14 +11,14 @@ rm -rf /etc/ppp
 arch=`uname -m`
 wget -c http://poptop.sourceforge.net/yum/stable/packages/dkms-2.0.17.5-1.noarch.rpm
 wget -c http://poptop.sourceforge.net/yum/stable/packages/kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm
-wget http://lamp.teddysun.com/files/pptpd-1.3.4-2.el6.$arch.rpm
+wget http://poptop.sourceforge.net/yum/stable/packages/pptpd-1.4.0-1.el6.$arch.rpm
 wget http://poptop.sourceforge.net/yum/stable/packages/ppp-2.4.5-33.0.rhel6.$arch.rpm
 yum -y install make libpcap iptables gcc-c++ logrotate tar cpio perl pam tcp_wrappers
 rpm -ivh dkms-2.0.17.5-1.noarch.rpm
 rpm -ivh kernel_ppp_mppe-1.0.2-3dkms.noarch.rpm
 rpm -qa kernel_ppp_mppe
 rpm -Uvh ppp-2.4.5-33.0.rhel6.$arch.rpm
-rpm -ivh pptpd-1.3.4-2.el6.$arch.rpm
+rpm -ivh pptpd-1.4.0-1.el6.$arch.rpm
 mknod /dev/ppp c 108 0
 echo 1 > /proc/sys/net/ipv4/ip_forward
 echo "mknod /dev/ppp c 108 0" >> /etc/rc.local
